@@ -46,24 +46,34 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch(profile.formspree, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setForm({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
+  e.preventDefault();
+  setStatus("loading");
+
+  try {
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("subject", form.subject);
+    formData.append("message", form.message);
+
+    const res = await fetch(profile.formspree, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (res.ok) {
+      setStatus("success");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } else {
       setStatus("error");
     }
-  };
+  } catch (err) {
+    setStatus("error");
+  }
+};
 
   return (
     <section id="contact" ref={ref} style={{ padding: "100px 0", background: "var(--bg-secondary)" }}>
