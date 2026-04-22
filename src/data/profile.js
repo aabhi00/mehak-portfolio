@@ -6,8 +6,8 @@ export const profile = {
   linkedin: "https://linkedin.com/in/dr-mehak-khurana-4848241b6",
   scholar: "https://scholar.google.com/citations?user=3r5r-SEAAAAJ&hl=en",
   researchgate: "https://www.researchgate.net/profile/Mehak-Khurana",
-  formspree: "https://formspree.io/f/YOUR_FORM_ID",
-  photo: null,
+  formspree: "https://formspree.io/f/xgornzya",
+  photo: "/ankit.jpeg",
   keywords: [
     "Metal-Organic Frameworks",
     "Heterogeneous Catalysis",

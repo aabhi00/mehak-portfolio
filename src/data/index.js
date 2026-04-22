@@ -1,3 +1,5 @@
+// src/data/index.js
+
 export { profile, stats, researchAreas } from "./profile";
 export { papers } from "./papers";
-export { education } from "./timeline";
+export { education, experience } from "./timeline";
